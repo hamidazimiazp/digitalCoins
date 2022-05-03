@@ -6,7 +6,7 @@ import api from "./middlewares/api";
 export default function configureStore() {
     const store = createStore(
         reducer,
-        applyMiddleware([thunk, api])
+        applyMiddleware(thunk, api)
     );
 
     return store;
