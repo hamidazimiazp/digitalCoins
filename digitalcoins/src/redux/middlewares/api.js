@@ -1,12 +1,14 @@
 import axios from "axios";
 import * as actionTypes from "../action_types";
 
+// TODO: Handle Error
+
 
 const api = ({ dispatch }) => next => async action => {
 
     if (action.type !== actionTypes.apiCallBegan) return next(action);
 
-    const { url, method, data, onSuccess, onRecieved, onError, onStart, onFaild } = action.payload;
+    const { url, method, data, onSuccess, onRecieved, onStart, onFaild } = action.payload;
 
     if (onStart) {
         dispatch({ type: onStart });
@@ -32,9 +34,6 @@ const api = ({ dispatch }) => next => async action => {
         if (onFaild) {
             dispatch({ type: onFaild });
         }
-        // if (onError) {
-        //     dispatch({ type: onError, payload: { message: error.message } });
-        // }
     }
 }
 
