@@ -6,7 +6,7 @@ import { loadCoins } from '../redux/api';
 const Main = ({ coins, loadCoins }) => {
 
     useEffect(() => {
-        loadCoins()
+        if (coins.length === 0) loadCoins();
     }, []);
 
 
