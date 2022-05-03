@@ -3,9 +3,10 @@ import * as actionTypes from "../action_types";
 
 
 const api = ({ dispatch }) => next => async action => {
-    if (action.type === actionTypes.apiCallBegan) return next(action);
 
-    const { url, method, data, onSuccess, onError, onStart, onFaild } = action.payload;
+    if (action.type !== actionTypes.apiCallBegan) return next(action);
+
+    const { url, method, data, onSuccess, onRecieved, onError, onStart, onFaild } = action.payload;
 
     if (onStart) {
         dispatch({ type: onStart });
@@ -20,19 +21,20 @@ const api = ({ dispatch }) => next => async action => {
             data
         });
 
-        dispatch(actionTypes.apiCallSuccess({ data: response.data }));
-
         if (onSuccess) {
-            dispatch({ type: onSuccess, payload: { data: response.data } });
+            dispatch({ type: onSuccess });
+        }
+
+        if (onRecieved) {
+            dispatch({ type: onRecieved, payload: { data: response.data } });
         }
     } catch (error) {
-        dispatch(actionTypes.apiCallFaild({ message: error.message }));
         if (onFaild) {
             dispatch({ type: onFaild });
         }
-        if (onError) {
-            dispatch({ type: onError, payload: { message: error.message } });
-        }
+        // if (onError) {
+        //     dispatch({ type: onError, payload: { message: error.message } });
+        // }
     }
 }
 
