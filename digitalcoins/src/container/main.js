@@ -1,17 +1,20 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { loadCoins } from '../redux/api';
 
 
-const Main = ({ coins }) => {
+const Main = ({ coins, loadCoins }) => {
 
     useEffect(() => {
-        console.log(coins);
+        loadCoins()
     }, []);
 
 
     return (
         <>
-            200
+            {
+                coins.map(item => <li key={item.id}>{item.id}</li>)
+            }
         </>
     );
 }
@@ -22,4 +25,9 @@ const mapStateToProps = state => ({
 });
 
 
-export default connect(mapStateToProps)(Main);
+const mapDispatchToProps = dispatch => ({
+    loadCoins: () => dispatch(loadCoins())
+});
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);
