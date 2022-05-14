@@ -1,6 +1,6 @@
 import React from 'react';
 import { TextField } from '@mui/material';
-import "./SearchBox.sass";
+import "./SearchBox.scss";
 
 
 const SearchBox = ({ onChangeHandler }) => {
@@ -8,7 +8,7 @@ const SearchBox = ({ onChangeHandler }) => {
     return (
         <>
             <TextField
-                id=""
+                id="searchField"
                 label="Search Coins"
                 variant="outlined"
                 color='info'
