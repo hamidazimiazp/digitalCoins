@@ -1,0 +1,6 @@
+@import "../base.scss";
+
+.wrapper {
+    @include flexLayout($flexDirection : column);
+    padding: $space-3;
+}

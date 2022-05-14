@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import SearchBox from '../components/SearchBox';
 import { loadCoins } from '../redux/api';
+import "./main.scss";
 
 
 const Main = ({ coins, loadCoins }) => {
@@ -21,10 +22,16 @@ const Main = ({ coins, loadCoins }) => {
 
     return (
         <>
-            <SearchBox onChangeHandler={onChangeHandler} />
-            {
-                filtredCoins.map(item => <li key={item.id}>{item.id}</li>)
-            }
+            <div className='wrapper'>
+                <SearchBox onChangeHandler={onChangeHandler} />
+                {
+                    <ul>
+                        {
+                            filtredCoins.map(item => <li key={item.id}>{item.id}</li>)
+                        }
+                    </ul>
+                }
+            </div>
         </>
     );
 }
