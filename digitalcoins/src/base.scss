@@ -1,0 +1,39 @@
+// colors
+$color-primary: #000000;
+$color-secondary: #FFF000;
+$color-tertiary: #FFFFFF;
+
+// fonts
+$font-main: "sans-serif";
+
+// mixins
+@mixin centering($top:initial, $left:initial, $bottom:initial, $right:initial, $x:0, $y:0) {
+    position: absolute;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+    transform: translate($x, $y);
+}
+
+@mixin flexLayout($justifyContent:center, $alignItems:center, $flexDirection:row, $flexWrap:nowrap) {
+    display: flex;
+    justify-content: $justifyContent;
+    align-items: $alignItems;
+    flex-direction: $flexDirection;
+    flex-wrap: $flexWrap;
+}
+
+// base styles
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $color-tertiary;
+    user-select: none;
+    overflow-x: hidden;
+    font-family: $font-main;
+}
