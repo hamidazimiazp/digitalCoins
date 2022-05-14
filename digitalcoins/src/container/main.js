@@ -7,7 +7,7 @@ const Main = ({ coins, loadCoins }) => {
 
     useEffect(() => {
         if (coins.length === 0) loadCoins();
-    }, []);
+    }, [coins.length, loadCoins]);
 
 
     return (
