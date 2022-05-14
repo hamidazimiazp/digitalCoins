@@ -6,6 +6,10 @@ $color-tertiary: #FFFFFF;
 // fonts
 $font-main: "sans-serif";
 
+$space-1 : 10px;
+$space-2 : 20px;
+$space-3 : 30px;
+
 // mixins
 @mixin centering($top:initial, $left:initial, $bottom:initial, $right:initial, $x:0, $y:0) {
     position: absolute;
