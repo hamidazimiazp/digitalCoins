@@ -24,6 +24,12 @@ $font-main: "sans-serif";
     flex-wrap: $flexWrap;
 }
 
+// custom
+%fullSpace {
+    width: 100%;
+    height: 100%;
+}
+
 // base styles
 * {
     margin: 0;
