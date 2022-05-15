@@ -13,13 +13,13 @@ const Main = ({ coins, loadCoins }) => {
 
     useEffect(() => {
         if (coins.length === 0) loadCoins();
-        let ordered_coins = coins.sort((a, b) => a + b);
+        let ordered_coins = coins.sort((a, b) => a.market_cap_rank - b.market_cap_rank);
         setFiltredCoins(ordered_coins);
     }, [loadCoins, coins]);
 
 
     const onChangeHandler = event => {
-        setFiltredCoins(coins.filter(item => item.id.toLowerCase().includes(event.target.value.toLowerCase())).sort((a, b) => a + b));
+        setFiltredCoins(coins.filter(item => item.id.toLowerCase().includes(event.target.value.toLowerCase())).sort((a, b) => a.market_cap_rank - b.market_cap_rank));
     }
 
 
