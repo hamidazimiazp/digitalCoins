@@ -14,32 +14,59 @@
     padding: $space-2;
     @include flexLayout($justifyContent : space-between);
 
+    @media (max-width : 960px) {
+        width: 80%;
+        padding: 5px;
+        margin-top: $space-1;
+    }
+
+    @media (max-width : 540px) {
+        width: 100%;
+    }
+
     &>.content {
-        @include flexLayout($justifyContent : space-between);
+        @include flexLayout($justifyContent : space-between, $flexWrap: wrap);
         @extend %fullSpace;
         text-align: center;
     }
 
     &>.content img {
         width: 50px;
-        width: 50px;
+        height: 50px;
         margin-left: $space-1;
         object-fit: cover;
+
+        @media (max-width : 540px) {
+            width: 25px;
+            height: 25px;
+        }
     }
 
     &>.content h1 {
         font-size: 18px;
         color: $color-secondary;
         margin-left: $space-1;
+
+        @media (max-width : 540px) {
+            font-size: 13px;
+        }
     }
 
     &>.content>.symbol {
         margin-left: $space-1;
         font-family: $font-main;
         font-size: 18px;
+
+        @media (max-width : 540px) {
+            font-size: 14px;
+        }
     }
 
     & span {
         min-width: calc(100% / 6);
+
+        @media (max-width : 540px) {
+            font-size: 12px;
+        }
     }
 }
