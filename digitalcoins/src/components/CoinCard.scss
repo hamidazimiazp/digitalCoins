@@ -1,0 +1,45 @@
+@import "../base.scss";
+
+.MuiTextField-root {
+    width: 50%;
+}
+
+.crypto-card {
+    width: 50%;
+    height: 100px;
+    background-color: $color-tertiary;
+    margin: $space-1;
+    box-shadow: $shadow-1;
+    border-radius: $radius-2;
+    padding: $space-2;
+    @include flexLayout($justifyContent : space-between);
+
+    &>.content {
+        @include flexLayout($justifyContent : space-between);
+        @extend %fullSpace;
+        text-align: center;
+    }
+
+    &>.content img {
+        width: 50px;
+        width: 50px;
+        margin-left: $space-1;
+        object-fit: cover;
+    }
+
+    &>.content h1 {
+        font-size: 18px;
+        color: $color-secondary;
+        margin-left: $space-1;
+    }
+
+    &>.content>.symbol {
+        margin-left: $space-1;
+        font-family: $font-main;
+        font-size: 18px;
+    }
+
+    & span {
+        min-width: calc(100% / 6);
+    }
+}
