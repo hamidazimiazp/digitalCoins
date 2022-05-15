@@ -28,18 +28,20 @@ const Main = ({ coins, loadCoins }) => {
 
             <div className='wrapper'>
                 <SearchBox onChangeHandler={onChangeHandler} />
-                {filtredCoins.map(item => {
-                    return <Suspense fallback={<Skeleton
-                        sx={{ bgcolor: 'grey.900' }}
-                        variant="rectangular"
-                        width="50%"
-                        height={150}
-                        style={{ margin: 10, borderRadius: 7 }}
-                    />}>
-                        <CoinCard key={item.id} data={item} />
-                    </Suspense>
-                })
-                }
+                <Suspense fallback={<h2>Loading ...</h2>}>
+                    {filtredCoins.map(item => {
+                        return <Suspense key={item.id} fallback={<Skeleton
+                            sx={{ bgcolor: 'grey.900' }}
+                            variant="rectangular"
+                            width="50%"
+                            height={150}
+                            style={{ margin: 10, borderRadius: 7 }}
+                        />}>
+                            <CoinCard data={item} />
+                        </Suspense>
+                    })
+                    }
+                </Suspense>
             </div>
         </>
     );
