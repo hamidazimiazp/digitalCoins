@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+import CoinCard from '../components/CoinCard';
 import SearchBox from '../components/SearchBox';
 import { loadCoins } from '../redux/api';
 import "./main.scss";
@@ -11,7 +12,8 @@ const Main = ({ coins, loadCoins }) => {
 
     useEffect(() => {
         if (coins.length === 0) loadCoins();
-        setFiltredCoins(coins);
+        let ordered_coins = coins.sort((a, b) => a + b);
+        setFiltredCoins(ordered_coins);
     }, [loadCoins, coins]);
 
 
@@ -25,11 +27,7 @@ const Main = ({ coins, loadCoins }) => {
             <div className='wrapper'>
                 <SearchBox onChangeHandler={onChangeHandler} />
                 {
-                    <ul>
-                        {
-                            filtredCoins.map(item => <li key={item.id}>{item.id}</li>)
-                        }
-                    </ul>
+                    filtredCoins.map(item => <CoinCard key={item.id} data={item} />)
                 }
             </div>
         </>
