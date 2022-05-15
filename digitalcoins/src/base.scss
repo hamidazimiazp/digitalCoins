@@ -6,12 +6,18 @@ $color-tertiary: #FFFFFF;
 // fonts
 $font-main: "sans-serif";
 
+// space
 $space-1 : 10px;
 $space-2 : 20px;
 $space-3 : 30px;
 
+// radius
+$radius-1 : 3px;
+$radius-2 : 7px;
+$radius-3 : 10px;
+
 // mixins
-@mixin centering($top:initial, $left:initial, $bottom:initial, $right:initial, $x:0, $y:0) {
+@mixin centering($top: initial, $left: initial, $bottom: initial, $right: initial, $x: 0, $y: 0) {
     position: absolute;
     top: $top;
     right: $right;
@@ -20,7 +26,7 @@ $space-3 : 30px;
     transform: translate($x, $y);
 }
 
-@mixin flexLayout($justifyContent:center, $alignItems:center, $flexDirection:row, $flexWrap:nowrap) {
+@mixin flexLayout($justifyContent: center, $alignItems: center, $flexDirection: row, $flexWrap: nowrap) {
     display: flex;
     justify-content: $justifyContent;
     align-items: $alignItems;
