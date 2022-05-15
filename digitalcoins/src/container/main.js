@@ -10,18 +10,16 @@ import { Skeleton } from '@mui/material';
 const Main = ({ coins, loadCoins }) => {
 
     const [filtredCoins, setFiltredCoins] = useState([]);
-    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         if (coins.length === 0) loadCoins();
         let ordered_coins = coins.sort((a, b) => a + b);
         setFiltredCoins(ordered_coins);
-        setLoading(true);
     }, [loadCoins, coins]);
 
 
     const onChangeHandler = event => {
-        setFiltredCoins(coins.filter(item => item.id.toLowerCase().includes(event.target.value.toLowerCase())));
+        setFiltredCoins(coins.filter(item => item.id.toLowerCase().includes(event.target.value.toLowerCase())).sort((a, b) => a + b));
     }
 
 
